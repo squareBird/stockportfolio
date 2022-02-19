@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Blog List</title>
+    </head>
+    <body>
+        <H1>게시판 페이지 입니다.</H1>
+        <!-- 게시판(postlist)의 게시글(list)을 하나씩 보여줍니다 -->
+        <!-- 내부엔 파이썬이 사용됩니다 -->
+
+        <table>
+            {% for list in postList %}
+                <ul>
+                    <!-- harf 뒤에 ""사이에 문자열을 넣으면 현재 내가 있는 url 뒤에 /{넣은 문자열}로 url접속 시도를 하게됨
+                         이 경우 pk는 해당 list 즉 Post객체의 기본키(일렬번호)가 됨 누르면 바로 접속을 시도해버리게 됨 -->
+                    <li><a href="{{ list.pk }}">{{ list.postname }}</a></li>
+                </ul>
+            {% endfor %}
+        </table>
+
+    </body>
+</html>
